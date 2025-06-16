@@ -2,7 +2,6 @@ package org.example.deliverymatch.entity;
 
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
@@ -29,7 +28,6 @@ public class Trajet {
 
     @OneToMany(mappedBy = "trajet", cascade = CascadeType.ALL)
     private List<Demande> demandes;
-    @jakarta.persistence.Id
 
     public Long getIdTrajet() {
         return idTrajet;

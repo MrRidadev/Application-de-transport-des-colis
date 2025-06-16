@@ -1,8 +1,6 @@
 package org.example.deliverymatch.entity;
 
-
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 @Entity
 public class Demande {
@@ -27,9 +25,8 @@ public class Demande {
     @ManyToOne
     @JoinColumn(name = "trajet_id")
     private Trajet trajet;
-    @jakarta.persistence.Id
-    private Long id;
 
+    // Getters and setters
     public Long getIdDemande() {
         return idDemande;
     }
@@ -100,13 +97,5 @@ public class Demande {
 
     public void setTrajet(Trajet trajet) {
         this.trajet = trajet;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 }
