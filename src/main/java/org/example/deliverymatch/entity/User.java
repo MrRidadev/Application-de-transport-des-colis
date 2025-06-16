@@ -17,6 +17,7 @@ public abstract class User {
     private Role role;
 
 
+
     public long getId() {
         return id;
     }
