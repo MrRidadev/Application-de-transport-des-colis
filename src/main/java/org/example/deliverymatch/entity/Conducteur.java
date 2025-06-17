@@ -10,6 +10,10 @@ import java.util.List;
 @Entity
 public class Conducteur extends User {
 
+    public Conducteur() {
+        super.setRole(Role.valueOf("Conducteur"));
+    }
+
     @OneToMany(mappedBy = "conducteur", cascade = CascadeType.ALL)
     private List<Trajet> trajets;
 }

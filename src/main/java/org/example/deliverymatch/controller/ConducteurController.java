@@ -4,10 +4,7 @@ package org.example.deliverymatch.controller;
 import org.example.deliverymatch.entity.Conducteur;
 import org.example.deliverymatch.service.ConducteurService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,8 +19,8 @@ public class ConducteurController {
     }
 
 
-    @PostMapping("createConducteur")
-    public Conducteur createConducteur(Conducteur conducteur) {
+    @PostMapping("/createConducteur")
+    public Conducteur createConducteur(@RequestBody Conducteur conducteur) {
         return userService.createConducteur(conducteur);
     }
 
