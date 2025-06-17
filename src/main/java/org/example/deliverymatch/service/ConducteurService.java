@@ -1,5 +1,6 @@
 package org.example.deliverymatch.service;
 
+import org.example.deliverymatch.entity.Conducteur;
 import org.example.deliverymatch.repository.ConducteurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,4 +15,7 @@ public class ConducteurService {
     }
 
 
+    public Conducteur createConducteur(Conducteur conducteur) {
+        return conducteurrepository.save(conducteur);
+    }
 }
