@@ -5,6 +5,8 @@ import org.example.deliverymatch.repository.TrajetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TrajetService {
 
@@ -18,5 +20,9 @@ public class TrajetService {
 
     public Trajet addTrajet(Trajet trajet) {
        return trajetRepository.save(trajet);
+    }
+
+    public List<Trajet> findAll() {
+        return trajetRepository.findAll();
     }
 }
