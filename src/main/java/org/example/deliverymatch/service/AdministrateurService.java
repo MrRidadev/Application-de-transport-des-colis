@@ -2,7 +2,6 @@ package org.example.deliverymatch.service;
 
 
 import org.example.deliverymatch.entity.Administrateur;
-import org.example.deliverymatch.entity.User;
 import org.example.deliverymatch.repository.AdministrateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
