@@ -2,10 +2,7 @@ package org.example.deliverymatch.controller;
 
 import org.example.deliverymatch.entity.Trajet;
 import org.example.deliverymatch.service.TrajetService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class TrajetController {
     }
 
     @PostMapping("/ajouterTrajet")
-    public Trajet addTrajet(Trajet trajet) {
+    public Trajet addTrajet(@RequestBody Trajet trajet) {
         return trajetService.addTrajet(trajet);
     }
 
