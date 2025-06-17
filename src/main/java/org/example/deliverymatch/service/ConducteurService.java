@@ -5,6 +5,8 @@ import org.example.deliverymatch.repository.ConducteurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ConducteurService {
 
@@ -17,5 +19,9 @@ public class ConducteurService {
 
     public Conducteur createConducteur(Conducteur conducteur) {
         return conducteurrepository.save(conducteur);
+    }
+
+    public List<Conducteur> getAllConducteur() {
+        return conducteurrepository.findAll();
     }
 }
