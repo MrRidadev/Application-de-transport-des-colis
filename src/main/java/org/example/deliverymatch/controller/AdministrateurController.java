@@ -2,7 +2,6 @@ package org.example.deliverymatch.controller;
 
 
 import org.example.deliverymatch.entity.Administrateur;
-import org.example.deliverymatch.entity.User;
 import org.example.deliverymatch.service.AdministrateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
