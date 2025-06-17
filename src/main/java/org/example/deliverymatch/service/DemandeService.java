@@ -7,6 +7,8 @@ import org.example.deliverymatch.repository.ExpediteurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DemandeService {
 
@@ -19,6 +21,11 @@ public class DemandeService {
     // ajouter demande
     public Demande addDemande(Demande demande) {
         return demandeRepository.save(demande);
+    }
+    // afficher demande
+
+    public List<Demande> getDemandes() {
+        return demandeRepository.findAll();
     }
 
 }
