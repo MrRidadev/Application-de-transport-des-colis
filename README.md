@@ -42,14 +42,11 @@ Cette plateforme web permet de mettre en relation des **conducteurs** qui publie
 
 ### 📘 1. Diagramme de Cas d’Utilisation (Use Case)
 - Acteurs : Utilisateur, Conducteur, Expéditeur, Administrateur
-- Cas : créer compte, publier annonce, envoyer demande, consulter historique, gérer utilisateurs…
-
+![UseCaseDiagram1jb.jpg](../../../Pictures/UseCaseDiagram1jb.jpg)
 ### 🧱 2. Diagramme de Classes
-- Classes principales : Utilisateur, Trajet, Demande, Colis, Annonce, Admin, Statistique
-
+![ClassDiagram1jb.jpg](../../../Pictures/ClassDiagram1jb.jpg)
 ### 🔄 3. Diagramme de Séquence
-- Scénario exemple : un expéditeur recherche un trajet → envoie une demande → conducteur accepte → notification envoyée
-
+![SequenceDiagram1jb.jpg](../../../Pictures/SequenceDiagram1jb.jpg)
 > *(Les diagrammes UML sont à placer dans un dossier `/docs` ou `/uml` du projet)*
 
 
