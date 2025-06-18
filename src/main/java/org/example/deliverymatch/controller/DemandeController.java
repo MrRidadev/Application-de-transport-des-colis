@@ -45,4 +45,9 @@ public class DemandeController {
         return demandeService.getDemandesAvecRelations();
     }
 
+
+    @GetMapping("/{id}/demandes")
+    public List<Demande> getDemandesByExpediteur(@PathVariable Long id) {
+        return demandeService.getDemandesByExpediteur(id);
+    }
 }

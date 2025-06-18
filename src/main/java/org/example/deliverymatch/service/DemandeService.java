@@ -61,4 +61,9 @@ public class DemandeService {
     }
 
 
+    public List<Demande> getDemandesByExpediteur(Long expediteurId) {
+        return demandeRepository.findByExpediteurId(expediteurId);
+    }
+
+
 }
