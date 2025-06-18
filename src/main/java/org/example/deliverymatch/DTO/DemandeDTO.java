@@ -1,35 +1,20 @@
-package org.example.deliverymatch.entity;
+package org.example.deliverymatch.DTO;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
+public class DemandeDTO {
 
-@Entity
-public class Demande {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDemande;
-
     private float longueur;
     private float poids;
     private String typeColis;
     private float largeur;
     private float hauteur;
+    private String etat;
 
-    @Enumerated(EnumType.STRING)
-    private Etat etat;
+    private String nomComplet;
+    private String lieuDepart;
+    private String destinationFinale;
 
-    @ManyToOne
-    @JoinColumn(name = "expediteur_id")
-    @JsonBackReference
-    private Expediteur expediteur;
 
-    @ManyToOne
-    @JoinColumn(name = "trajet_id")
-    @JsonBackReference
-    private Trajet trajet;
-
-    // Getters and setters
     public Long getIdDemande() {
         return idDemande;
     }
@@ -78,27 +63,35 @@ public class Demande {
         this.hauteur = hauteur;
     }
 
-    public Etat getEtat() {
+    public String getEtat() {
         return etat;
     }
 
-    public void setEtat(Etat etat) {
+    public void setEtat(String etat) {
         this.etat = etat;
     }
 
-    public Expediteur getExpediteur() {
-        return expediteur;
+    public String getNomComplet() {
+        return nomComplet;
     }
 
-    public void setExpediteur(Expediteur expediteur) {
-        this.expediteur = expediteur;
+    public void setNomComplet(String nomComplet) {
+        this.nomComplet = nomComplet;
     }
 
-    public Trajet getTrajet() {
-        return trajet;
+    public String getLieuDepart() {
+        return lieuDepart;
     }
 
-    public void setTrajet(Trajet trajet) {
-        this.trajet = trajet;
+    public void setLieuDepart(String lieuDepart) {
+        this.lieuDepart = lieuDepart;
+    }
+
+    public String getDestinationFinale() {
+        return destinationFinale;
+    }
+
+    public void setDestinationFinale(String destinationFinale) {
+        this.destinationFinale = destinationFinale;
     }
 }

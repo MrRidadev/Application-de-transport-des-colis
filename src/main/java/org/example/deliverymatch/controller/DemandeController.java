@@ -1,10 +1,11 @@
 package org.example.deliverymatch.controller;
 
 
+import org.example.deliverymatch.DTO.DemandeDTO;
 import org.example.deliverymatch.entity.Demande;
 import org.example.deliverymatch.repository.ExpediteurRepository;
+import org.example.deliverymatch.repository.TrajetRepository;
 import org.example.deliverymatch.service.DemandeService;
-import org.example.deliverymatch.service.ExpediteurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,11 @@ import java.util.List;
 public class DemandeController {
 
     private final DemandeService demandeService;
+    @Autowired
+    private ExpediteurRepository expediteurRepository;
+
+    @Autowired
+    private TrajetRepository trajetRepository;
 
     @Autowired
     public DemandeController(DemandeService demandeService) {
@@ -25,6 +31,7 @@ public class DemandeController {
     @PostMapping("/addDemande")
     public Demande addDemande(@RequestBody Demande demande) {
         return demandeService.addDemande(demande);
+
     }
 
     //afficher Demande
@@ -32,4 +39,10 @@ public class DemandeController {
     public List<Demande> getDemandes() {
         return demandeService.getDemandes();
     }
+
+    @GetMapping("/getdemandeAvecRelation")
+    public List<DemandeDTO> getDemandesAvecRelations() {
+        return demandeService.getDemandesAvecRelations();
+    }
+
 }

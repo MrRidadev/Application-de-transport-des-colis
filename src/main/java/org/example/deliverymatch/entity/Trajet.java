@@ -1,6 +1,7 @@
 package org.example.deliverymatch.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class Trajet {
     private Conducteur conducteur;
 
     @OneToMany(mappedBy = "trajet", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Demande> demandes;
 
     public Long getIdTrajet() {
