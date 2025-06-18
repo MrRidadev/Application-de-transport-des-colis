@@ -3,6 +3,7 @@ package org.example.deliverymatch.controller;
 
 import org.example.deliverymatch.DTO.DemandeDTO;
 import org.example.deliverymatch.entity.Demande;
+import org.example.deliverymatch.entity.Etat;
 import org.example.deliverymatch.repository.ExpediteurRepository;
 import org.example.deliverymatch.repository.TrajetRepository;
 import org.example.deliverymatch.service.DemandeService;
@@ -49,5 +50,11 @@ public class DemandeController {
     @GetMapping("/{id}/demandes")
     public List<Demande> getDemandesByExpediteur(@PathVariable Long id) {
         return demandeService.getDemandesByExpediteur(id);
+    }
+
+
+    @PutMapping("/{id}/changer-etat")
+    public Demande changerEtat(@PathVariable Long id, @RequestParam Etat etat) {
+        return demandeService.changerEtatDemande(id, etat);
     }
 }

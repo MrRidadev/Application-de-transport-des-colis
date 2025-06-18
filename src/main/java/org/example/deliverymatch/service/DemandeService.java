@@ -2,6 +2,7 @@ package org.example.deliverymatch.service;
 
 import org.example.deliverymatch.DTO.DemandeDTO;
 import org.example.deliverymatch.entity.Demande;
+import org.example.deliverymatch.entity.Etat;
 import org.example.deliverymatch.entity.Expediteur;
 import org.example.deliverymatch.repository.DemandeRepository;
 import org.example.deliverymatch.repository.ExpediteurRepository;
@@ -65,5 +66,13 @@ public class DemandeService {
         return demandeRepository.findByExpediteurId(expediteurId);
     }
 
+
+    public Demande changerEtatDemande(Long idDemande, Etat nouvelEtat) {
+        Demande demande = demandeRepository.findById(idDemande)
+                .orElseThrow(() -> new RuntimeException("Demande non trouvée"));
+
+        demande.setEtat(nouvelEtat);
+        return demandeRepository.save(demande);
+    }
 
 }

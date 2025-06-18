@@ -16,8 +16,7 @@ public class Demande {
     private float largeur;
     private float hauteur;
 
-    @Enumerated(EnumType.STRING)
-    private Etat etat;
+
 
     @ManyToOne
     @JoinColumn(name = "expediteur_id")
@@ -29,7 +28,21 @@ public class Demande {
     @JsonBackReference
     private Trajet trajet;
 
+
+    @Enumerated(EnumType.STRING)
+    private Etat etat = Etat.ENATTENTE;
+
+
+
     // Getters and setters
+    public Etat getEtat() {
+        return etat;
+    }
+
+    public void setEtat(Etat etat) {
+        this.etat = etat;
+    }
+
     public Long getIdDemande() {
         return idDemande;
     }
@@ -78,13 +91,6 @@ public class Demande {
         this.hauteur = hauteur;
     }
 
-    public Etat getEtat() {
-        return etat;
-    }
-
-    public void setEtat(Etat etat) {
-        this.etat = etat;
-    }
 
     public Expediteur getExpediteur() {
         return expediteur;
