@@ -2,13 +2,12 @@ package org.example.deliverymatch.DTO;
 
 import java.util.List;
 
-public class TrajetDTO {
+public class TrajetHistoriqueDTO {
 
     private Long idTrajet;
     private String lieuDepart;
     private String destinationFinale;
-    private List<DemandeDTO> colisTransportes;
-
+    private List<DemandeSimpleDTO> colisTransportes;
 
     public Long getIdTrajet() {
         return idTrajet;
@@ -34,11 +33,11 @@ public class TrajetDTO {
         this.destinationFinale = destinationFinale;
     }
 
-    public List<DemandeDTO> getColisTransportes() {
+    public List<DemandeSimpleDTO> getColisTransportes() {
         return colisTransportes;
     }
 
-    public void setColisTransportes(List<DemandeDTO> colisTransportes) {
+    public void setColisTransportes(List<DemandeSimpleDTO> colisTransportes) {
         this.colisTransportes = colisTransportes;
     }
 }
