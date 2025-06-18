@@ -58,4 +58,9 @@ public class TrajetService {
 
         return result;
     }
+
+
+    public List<Trajet> filtrerParLieuEtDestination(String lieuDepart, String destinationFinale) {
+        return trajetRepository.findByLieuDepartAndDestinationFinale(lieuDepart, destinationFinale);
+    }
 }

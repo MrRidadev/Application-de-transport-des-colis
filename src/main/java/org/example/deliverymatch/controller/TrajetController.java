@@ -25,4 +25,13 @@ public class TrajetController {
     public List<Trajet> findAll() {
         return trajetService.findAll();
     }
+
+
+    @GetMapping("/filtrer")
+    public List<Trajet> filtrerTrajets(
+            @RequestParam String lieuDepart,
+            @RequestParam String destinationFinale) {
+
+        return trajetService.filtrerParLieuEtDestination(lieuDepart, destinationFinale);
+    }
 }

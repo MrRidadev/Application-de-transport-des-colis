@@ -11,4 +11,6 @@ public interface TrajetRepository extends JpaRepository<Trajet, Long> {
 
     // afficher historique de trajet et les colies par conducteur
     List<Trajet> findByConducteurId(Long conducteurId);
+
+    List<Trajet> findByLieuDepartAndDestinationFinale(String lieuDepart, String destinationFinale);
 }
