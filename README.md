@@ -42,11 +42,13 @@ Cette plateforme web permet de mettre en relation des **conducteurs** qui publie
 
 ### 📘 1. Diagramme de Cas d’Utilisation (Use Case)
 - Acteurs : Utilisateur, Conducteur, Expéditeur, Administrateur
-- ![ClassDiagram1jb.jpg](UML/ClassDiagram1jb.jpg)
+- ![UseCaseDiagram1jb.jpg](UML/UseCaseDiagram1jb.jpg)
+
 ### 🧱 2. Diagramme de Classes
-![SequenceDiagram1jb.jpg](UML/SequenceDiagram1jb.jpg)
+- ![ClassDiagram1jb.jpg](UML/ClassDiagram1jb.jpg)
+
 ### 🔄 3. Diagramme de Séquence
-![UseCaseDiagram1jb.jpg](UML/UseCaseDiagram1jb.jpg)
+![SequenceDiagram1jb.jpg](UML/SequenceDiagram1jb.jpg)
 
 ## 🧪 Technologies Utilisées
 
