@@ -1,0 +1,32 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+    <h3 class="mb-4 text-center text-success">Inscription</h3>
+    <form>
+      <div class="mb-3">
+        <label for="fullname" class="form-label">Nom complet</label>
+        <input type="text" id="fullname" class="form-control" placeholder="Votre nom complet" required />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Adresse email</label>
+        <input type="email" id="email" class="form-control" placeholder="exemple@domaine.com" required />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" id="password" class="form-control" placeholder="Mot de passe" required />
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Rôle</label>
+        <select id="role" class="form-select" required>
+          <option value="" disabled selected>Choisir un rôle</option>
+          <option value="client">Expediteur</option>
+          <option value="conducteur">Conducteur</option>
+          <option value="admin">Administrateur</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success w-100">S'inscrire</button>
+    </form>
+    <div class="mt-3 text-center">
+      <small>Vous avez déjà un compte ? <a href="login.html">Connectez-vous</a></small>
+    </div>
+  </div>
+</div>
