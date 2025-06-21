@@ -3,6 +3,7 @@ import {Header} from './pages/header/header';
 import {Login} from './pages/login/login';
 import {Register} from './pages/register/register';
 import {AnnonceCards} from './pages/annonce-cards/annonce-cards';
+import {DashboardAdmin} from './pages/dashboard-admin/dashboard-admin';
 
 export const routes: Routes = [
 
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: 'annonce',
     component: AnnonceCards
+  },
+  {
+    path: 'dashboard-admin',
+    component: DashboardAdmin
   }
 
 ];
