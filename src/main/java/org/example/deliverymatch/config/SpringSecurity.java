@@ -44,10 +44,10 @@ public class SpringSecurity {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**","/admin/**","/conducteur/**","/expediteur/**").permitAll()
-//                        .requestMatchers("/admin/**").hasRole("Administrateur")
-//                        .requestMatchers("/conducteur/**").hasRole("Conducteur")
-//                        .requestMatchers("/expediteur/**").hasRole("Expediteur")
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/Demande/**","Trajet/**","/Conducteur/**").hasRole("Administrateur")
+                        .requestMatchers("/Demande/**","/Demande/addDemande").hasRole("Conducteur")
+                        .requestMatchers("/Trajet/**").hasRole("Expediteur")
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
