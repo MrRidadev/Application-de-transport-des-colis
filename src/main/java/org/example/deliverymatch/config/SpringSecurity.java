@@ -42,12 +42,19 @@ public class SpringSecurity {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
+        return http
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/Demande/**","/Trajet/**","/Conducteur/**").hasRole("Administrateur")
+                        .requestMatchers("/Trajet/**").hasRole("Conducteur")
+                        .requestMatchers("/Demande/**","/Demande/addDemande").hasRole("Expediteur")
                         .requestMatchers("/Demande/addDemande").permitAll()
+
                         .anyRequest().authenticated()
-                );
-        return http.build();
+                )
+                .httpBasic(Customizer.withDefaults())
+                .build();
     }
 
 }

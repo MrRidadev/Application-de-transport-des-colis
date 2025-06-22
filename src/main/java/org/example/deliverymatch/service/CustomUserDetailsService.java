@@ -28,12 +28,15 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("User not found: " + email);
         }
+        System.out.println("User: " + user.getEmail() + ", Role: ROLE_" + user.getRole().name());
+
 
         return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getEmail())
                 .password(user.getPassword())
-                .authorities("ROLE_" + user.getRole().name().toUpperCase())
+                .authorities( user.getRole().name().toUpperCase())
                 .build();
+
     }
 
     private User findUserByEmail(String email) {
@@ -47,5 +50,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         // Chercher dans expediteur
         return expediteurRepo.findByEmail(email).orElse(null);
+
+
     }
+
+
 }
