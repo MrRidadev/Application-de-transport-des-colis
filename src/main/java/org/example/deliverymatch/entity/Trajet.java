@@ -28,7 +28,7 @@ public class Trajet {
     private Conducteur conducteur;
 
     @OneToMany(mappedBy = "trajet", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("trajet-etapes")
     private List<Demande> demandes;
 
     public Long getIdTrajet() {
@@ -102,4 +102,6 @@ public class Trajet {
     public void setDemandes(List<Demande> demandes) {
         this.demandes = demandes;
     }
+
+
 }

@@ -25,7 +25,7 @@ public class Demande {
 
     @ManyToOne
     @JoinColumn(name = "trajet_id")
-    @JsonBackReference
+    @JsonBackReference("trajet-etapes")
     private Trajet trajet;
 
 

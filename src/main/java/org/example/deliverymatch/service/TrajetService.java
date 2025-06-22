@@ -1,6 +1,7 @@
 package org.example.deliverymatch.service;
 
 
+import jakarta.transaction.Transactional;
 import org.example.deliverymatch.DTO.DemandeSimpleDTO;
 import org.example.deliverymatch.DTO.TrajetHistoriqueDTO;
 import org.example.deliverymatch.entity.Demande;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TrajetService {
@@ -28,10 +30,32 @@ public class TrajetService {
        return trajetRepository.save(trajet);
     }
 
-    public List<Trajet> findAll() {
-        return trajetRepository.findAll();
-    }
+    @Transactional
+    public List<TrajetHistoriqueDTO> findAll() {
+        List<Trajet> trajets = trajetRepository.findAll();
 
+        return trajets.stream().map(trajet -> {
+            TrajetHistoriqueDTO dto = new TrajetHistoriqueDTO();
+            dto.setIdTrajet(trajet.getIdTrajet());
+            dto.setLieuDepart(trajet.getLieuDepart());
+            dto.setDestinationFinale(trajet.getDestinationFinale());
+
+            // ✅ Mapping des demandes (colis transportés)
+            List<DemandeSimpleDTO> demandesDTO = trajet.getDemandes().stream()
+                    .map(demande -> {
+                        DemandeSimpleDTO dDto = new DemandeSimpleDTO();
+                        dDto.setIdDemande(demande.getIdDemande());
+                        dDto.setTypeColis(demande.getTypeColis());
+                        dDto.setPoids(demande.getPoids());
+                        return dDto;
+                    })
+                    .collect(Collectors.toList());
+
+            dto.setColisTransportes(demandesDTO);
+
+            return dto;
+        }).collect(Collectors.toList());
+    }
     public List<TrajetHistoriqueDTO> getHistoriqueConducteur(Long conducteurId) {
         List<Trajet> trajets = trajetRepository.findByConducteurId(conducteurId);
         List<TrajetHistoriqueDTO> result = new ArrayList<>();

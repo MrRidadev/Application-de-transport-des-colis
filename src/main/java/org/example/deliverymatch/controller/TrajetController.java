@@ -1,7 +1,9 @@
 package org.example.deliverymatch.controller;
 
+import org.example.deliverymatch.DTO.TrajetHistoriqueDTO;
 import org.example.deliverymatch.entity.Trajet;
 import org.example.deliverymatch.service.TrajetService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,15 +18,18 @@ public class TrajetController {
         this.trajetService = conducteurService;
     }
 
-    @PostMapping("/ajouterTrajet")
+    @PostMapping(value="/ajouterTrajet", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Trajet addTrajet(@RequestBody Trajet trajet) {
         return trajetService.addTrajet(trajet);
     }
 
     @GetMapping("/findAllTrajet")
-    public List<Trajet> findAll() {
+    public List<TrajetHistoriqueDTO> findAll() {
         return trajetService.findAll();
     }
+
+
+
 
 
     @GetMapping("/filtrer")
