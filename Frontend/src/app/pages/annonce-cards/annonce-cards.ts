@@ -1,18 +1,23 @@
-import { Component,OnInit } from '@angular/core';
-import {TrajetService} from '../../services/TrajetService';
-import {NgForOf} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { TrajetService } from '../../services/TrajetService';
+import { Trajet } from '../../Model/trajet.model';
+import {CommonModule, NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-annonce-cards',
+  standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    CommonModule,
+
   ],
   templateUrl: './annonce-cards.html',
   styleUrl: './annonce-cards.css'
 })
 export class AnnonceCards implements OnInit {
 
-  trajets: TrajetService[] = [];
+  trajets: Trajet[] = [];
+
 
   constructor(private trajetService: TrajetService) {}
 
@@ -22,5 +27,4 @@ export class AnnonceCards implements OnInit {
       error: (err) => console.error('Erreur lors du chargement des trajets', err)
     });
   }
-
 }

@@ -1,19 +1,47 @@
-<div class="container mt-5">
+<div class="container mt-5" id="annonce">
   <div class="row">
-    @for (let trajet of trajets; track trajet.idTrajet) {
-      <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title text-success">
-              {{ trajet.lieuDepart }} → {{ trajet.destinationFinale }}
-            </h5>
-            <p class="card-text">
-              {{ trajet.typeColis }} - {{ trajet.capaciteDisponible }}
+
+    <!-- Affiche un message si la liste des trajets est vide -->
+    <div *ngIf="trajets.length === 0" class="col-12">
+      <div class="alert alert-info text-center">
+        <i class="fas fa-info-circle me-2"></i>
+        Aucun trajet disponible pour le moment.
+      </div>
+    </div>
+
+    <!-- Boucle sur chaque trajet -->
+    <div *ngFor="let trajet of trajets" class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+
+          <!-- Titre avec lieu de départ et destination -->
+          <h5 class="card-title text-success">
+            <i class="fas fa-route me-2"></i>
+            {{ trajet.lieuDepart || 'Inconnu' }} → {{ trajet.destinationFinale || 'Inconnue' }}
+          </h5>
+
+          <!-- Liste des colis si présents -->
+          <div class="card-text" *ngIf="trajet.colisTransportes && trajet.colisTransportes.length > 0; else noColis">
+            <p *ngFor="let colis of trajet.colisTransportes" class="mb-2">
+              <strong>Type de colis :</strong> {{ colis.typeColis }} <br>
+              <strong>Poids :</strong> {{ colis.poids }} kg
             </p>
-            <button class="btn btn-success w-100">Demander</button>
           </div>
+
+          <!-- Template affiché si aucun colis -->
+          <ng-template #noColis>
+            <p class="mb-2 text-muted">Aucun colis transporté</p>
+          </ng-template>
+
+          <!-- Bouton demander -->
+          <button class="btn btn-success w-100">
+            <i class="fas fa-paper-plane me-2"></i>
+            Demander
+          </button>
+
         </div>
       </div>
-    }
+    </div>
+
   </div>
 </div>
